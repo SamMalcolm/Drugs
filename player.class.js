@@ -1,4 +1,13 @@
 class Player {
+
+	addToTopCards(card) {
+		if (this.topCards.length <= 3) {
+			this.topCards.push(card);
+		} else {
+			console.error("Only 4 top cards");
+		}
+	}
+
 	constructor(name, position) {
 		this.name = name;
 		this.position = position;
