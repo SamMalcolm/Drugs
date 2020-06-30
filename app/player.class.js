@@ -8,7 +8,8 @@ class Player {
 		}
 	}
 
-	constructor(name, position) {
+	constructor(name, position, ip) {
+		this.ip = ip;
 		this.name = name;
 		this.position = position;
 		this.hand = [];
