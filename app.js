@@ -9,9 +9,42 @@ var usersRouter = require('./routes/users');
 
 var express = require("express");
 var socket_io = require("socket.io");
+const session = require('express-session');
+const { runInNewContext } = require('vm');
+const MemoryStore = require('memorystore')(session);
+const GameController = require('./app/game_controller.class');
+const Game = require('./app/game.class');
+
 
 // Express
 var app = express();
+
+app.use(session({
+	store: new MemoryStore({
+		checkPeriod: 86400000
+	}),
+	secret: 'Tj4W;h4KqU4AAGYieKPLH}Jh',
+	cookie: {
+		maxAge: 86400000
+	},
+	resave: false,
+	saveUninitialized: false
+}));
+
+app.locals.game_controller = new GameController()
+// app.use((req, res, next) => {
+// 	if (typeof req.game_controller == "undefined") {
+// 		req.game_controller = new GameController();
+// 	}
+// 	next();
+// })
+
+// app.dynamicHelpers({
+// 	session: function (req, res) {
+// 		return req.session;
+// 	}
+// });
+
 
 // Socket.io
 var io = socket_io();
@@ -28,6 +61,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/socket.io-client/dist')));
 
+app.use((req, res, next) => {
+	if (typeof req.session.messages != "undefined") {
+		if (req.session.messages.length) {
+			req.messages = req.session.messages;
+			req.session.messages = [];
+		}
+	} else {
+		req.session.messages = [];
+	}
+	next();
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -35,6 +80,7 @@ app.use('/users', usersRouter);
 app.use(function (req, res, next) {
 	next(createError(404));
 });
+
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -44,14 +90,7 @@ app.use(function (err, req, res, next) {
 
 	// render the error page
 	res.status(err.status || 500);
-	res.render('error');
-});
-
-io.on("connection", function (socket) {
-	console.log("USER CONNECTED");
-	socket.on("disconnect", () => {
-		console.log("USER DISCCONECTED")
-	})
+	res.render('error', { title: "HTTP Error" });
 });
 
 module.exports = app;

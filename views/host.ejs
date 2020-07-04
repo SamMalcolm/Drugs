@@ -1,0 +1,11 @@
+<%- include partials/header.ejs %>
+<%- include partials/nav.ejs %>
+<div class="drugs_container">
+	<h1>Host a New Game</h1>
+	<form method="POST" action="/room/create">
+		<input type="text" class="room_code" name="room_code" placeholder="Room Name" /><br />
+		<input type="text" class="name" name="name" placeholder="Your Name" /><br />
+		<button class="btn btn-primary">Host Game</button>
+	</form>
+</div>
+<%- include partials/footer.ejs %>

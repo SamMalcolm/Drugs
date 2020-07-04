@@ -39,62 +39,44 @@ class Game {
 		})
 	}
 
-	turn() {
-		let cardsPlayable = this.calculateLegalMoves()
-
-		this.playCard(cardsPlayable[0])
-
-		while (this.deck.length && this.activePlayer.hand.length < 4) {
-			this.activePlayer.hand.push(this.deck.draw(1))
-		}
-		this.activePlayer = this.getNextPlayer();
-		this.nextTurn();
-	}
-
 	killPile() {
 		this.deadCards.push(...this.pile);
 		this.pile = [];
 	}
 
-	playCard(card) {
+	playCard(cards) {
+		// if (card.value == "JO") {
+		// 	this.deadCards.push(card);
+		// 	this.getNextPlayer().hand.push(...this.pile)
+		// } else if (card.value == 3) {
+		// 	this.changeDirection();
+		// } else if (card.value == 10) {
+		// 	this.killPile()
+		// }
+	}
 
-		if (card.value == "JO") {
-			this.deadCards.push(card);
-			this.getNextPlayer().hand.push(...this.pile)
-		} else if (card.value == 3) {
-			this.changeDirection();
-		} else if (card.value == 10) {
-			this.killPile()
-		}
+	addPlayer(name, isHost = false) {
+		this.players.push(new Player(name, this.players.length, isHost))
+		return this.players.length;
 	}
 
 	startGame() {
 
+		this.deck = new Deck(this.decks);
+		this.currentCardValue == 4;
+		this.deck.shuffle();
+		this.dealBottomCards();
+		this.dealStartingHands();
+		this.activePlayer = this.players[0];
 
 	}
 
 
-	constructor(decks = 1, players = ["name", "name2"]) {
-
-		this.players = [];
-		this.deck = new Deck(decks);
-
-		for (let i = 0; i < players.length; i++) {
-			this.players.push(new Player(players[i], i))
-		}
-
-		this.currentCardValue == 4;
-
-		this.deck.shuffle();
-
+	constructor(room_code) {
 		this.pile = [];
 		this.deadCards = [];
-
-		this.dealBottomCards();
-		this.dealStartingHands();
-
-		this.activePlayer = this.players[0];
-
+		this.players = [];
+		this.room_code = room_code;
 	}
 }
 

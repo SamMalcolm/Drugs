@@ -1,0 +1,5 @@
+<% if (typeof messages != "undefined" && messages.length) { %>
+<% for (let i = 0; i < messages.length; i++) { %>
+<div class="<%= messages[i].type %>"><%= messages[i].text %></div>
+<% } %>
+<% } %>

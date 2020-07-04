@@ -8,13 +8,13 @@ class Player {
 		}
 	}
 
-	constructor(name, position, ip) {
-		this.ip = ip;
+	constructor(name, position, isHost = false) {
 		this.name = name;
 		this.position = position;
 		this.hand = [];
 		this.bottomCards = [];
 		this.topCards = [];
+		this.host = isHost
 	}
 }
 

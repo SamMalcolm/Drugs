@@ -28,27 +28,62 @@ body {
             margin: 0;
             padding: 0;
 
-            li {
-                display: inline-block;
-                list-style: none;
-                margin-left: 0;
+
+            a {
+                li {
+                    display: inline-block;
+                    list-style: none;
+                    margin-left: 0;
+
+
+
+                }
+
                 background: black;
                 transition: 0.2s ease;
                 padding: 15px;
+                text-decoration: none;
+                color: white;
 
                 &:hover {
                     background: rgb(49, 49, 49);
 
-                    a {
-                        color: #f2f2f2;
-                    }
+                    color: #f2f2f2;
+
                 }
 
-                a {
-                    text-decoration: none;
-                    color: white;
-                }
+
             }
+
+
+        }
+    }
+
+    .drugs_container {
+        padding: 20px;
+        width: calc(100% - 40px);
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    input[type='text'] {
+        font-size: 18px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        font-size: 16px;
+        background: black;
+        transition: 0.1s;
+        color: white;
+        border: 0;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 2px;
+
+        &:hover {
+            background: #333;
         }
     }
 }

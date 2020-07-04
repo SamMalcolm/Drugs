@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title><%= title %></title>
-</head>
-
-<body>
-	<nav>
-		<h1>💉 Drugs 💉</h1>
-		<ul>
-			<li><a href="/join">Join</a></li>
-			<li><a href="/host">Host</a></li>
-			<li><a href="/about">About</a></li>
-		</ul>
-	</nav>
-	<h1><%= title %></h1>
-	<p>Welcome to <%= title %></p>
-	<script src="/javascripts/main.bundle.js"></script>
-</body>
-
-</html>
+<%- include partials/header.ejs %>
+<%- include partials/nav.ejs %>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<%- include partials/footer.ejs %>
