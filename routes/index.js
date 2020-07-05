@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Game = require("../app/game.class");
-const title = '💉 Drugs 💉';
+const title = 'Drugs';
 
 router.get('/', function (req, res, next) {
 	res.render('index', { title: title });
