@@ -47,6 +47,8 @@ router.post('/room/join', (req, res, next) => {
 		let id = game.addPlayer(name);
 		req.session.room_code = room_code;
 		req.session.player_id = id;
+		req.session.name = name;
+		req.app.io.to(room_code).emit('players_update', game.players)
 		res.redirect('/room/lobby');
 	}
 
@@ -55,12 +57,26 @@ router.post('/room/join', (req, res, next) => {
 router.get('/room/lobby', (req, res, next) => {
 
 	let game = req.app.locals.game_controller.getGame(req.session.room_code);
-	console.log(game);
+	console.log(game)
+	if (!game) {
+		res.redirect("/")
+	}
+
 	req.app.io.on("connection", socket => {
-		console.log("connected");
+		socket.join(req.session.room_code);
+		socket.on("disconnect", () => {
+			if (typeof game != "undefined" && typeof game.removePlayer != "undefined") {
+				let pl = game.removePlayer(req.session.name);
+				console.log("PL");
+				console.log(pl);
+				req.app.io.to(req.session.room_code).emit('players_update', game.players)
+			}
+
+		})
 	})
 
-	res.render("room", { title: title + " | " + game.room_code })
+
+	res.render("room", { title: title + " | " + game.room_code, players: game.players })
 
 })
 

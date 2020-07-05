@@ -2,7 +2,11 @@
 <%- include partials/nav.ejs %>
 <div class="drugs_container">
 	<h1><%=title%></h1>
-
+	<div class="player_container"></div>
 </div>
-<script src="/javascripts/host.bundle.js"></script>
+<script>
+	window.players = <%- JSON.stringify(players) %>;
+</script>
+<script src="/javascripts/lobby.bundle.js"></script>
+
 <%- include partials/footer.ejs %>

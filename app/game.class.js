@@ -60,6 +60,13 @@ class Game {
 		return this.players.length;
 	}
 
+	removePlayer(name) {
+		let player = this.players.filter((player) => { return player.name == name })
+		player = player[0];
+		this.players.splice(this.players.indexOf(player), 1)
+		return this.players;
+	}
+
 	startGame() {
 
 		this.deck = new Deck(this.decks);

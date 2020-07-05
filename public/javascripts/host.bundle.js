@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./app/client/host.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/Users/samuelmalcolm/Sites/drugs/app/client/host.js'\");\n\n//# sourceURL=webpack:///./app/client/host.js?");
 
 /***/ })
 
