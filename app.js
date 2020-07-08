@@ -50,6 +50,21 @@ app.locals.game_controller = new GameController()
 var io = socket_io();
 app.io = io;
 
+const lobby = io.of('/lobby');
+const game = io.of('/game');
+app.locals.io_lobby = lobby;
+app.locals.io_game = game;
+
+lobby.on("connection", socket => {
+	console.log("CONNECTED TO LOBBY")
+	socket.on('join', data => {
+		console.log("ON JOIN")
+		console.log(data);
+		socket.join(data.room)
+		lobby.in(data.room).emit("msg", "New Member in " + data.room + " room")
+	})
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -92,5 +107,8 @@ app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	res.render('error', { title: "HTTP Error" });
 });
+
+
+
 
 module.exports = app;

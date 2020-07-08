@@ -1,6 +1,14 @@
 import io from 'socket.io-client';
 
-var socket = io();
+var socket = io('/lobby');
+
+socket.on('connect', () => {
+	socket.emit('join', {room: window.room_code})
+})
+
+socket.on('msg', msg => {
+	console.log(msg);
+})
 
 const addPlayersToDom = (players) => {
 	if (typeof players == "string") {
