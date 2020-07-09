@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-
+import '../../public/stylesheets/lobby.scss'
 var socket = io('/lobby');
 
 socket.on('connect', () => {
@@ -11,6 +11,7 @@ socket.on('msg', msg => {
 })
 
 const addPlayersToDom = (players) => {
+	console.log(players);
 	if (typeof players == "string") {
 		players = JSON.parse(players);
 	}
@@ -19,8 +20,8 @@ const addPlayersToDom = (players) => {
 	let html = "<ul>";
 	for (let i = 0; i < players.length; i++) {
 		html += `
-			<li>
-				<div ${(players[i].isHost) ? "host" : "player"}>
+			<li class="${(players[i].host) ? "host" : "player"}">
+				<div>
 					<h3>${players[i].name}</h3>
 				</div>
 			</li>`;
