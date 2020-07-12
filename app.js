@@ -56,12 +56,36 @@ app.locals.io_lobby = lobby;
 app.locals.io_game = game;
 
 lobby.on("connection", socket => {
-	console.log("CONNECTED TO LOBBY")
 	socket.on('join', data => {
-		console.log("ON JOIN")
-		console.log(data);
 		socket.join(data.room)
-		lobby.in(data.room).emit("msg", "New Member in " + data.room + " room")
+		lobby.in(data.room).emit("msg", { msg: "New Member in " + data.room + " room" })
+	})
+
+	socket.on('msg', data => {
+		lobby.in(data.room).emit("msg", { msg: data.msg })
+	})
+
+	socket.on('start_game', data => {
+		lobby.in(data.room).emit("start_game")
+	})
+
+	socket.on('disconnect', data => {
+		console.log("SOCKET LEFT");
+		console.log(data);
+	})
+});
+
+game.on("connection", socket => {
+
+	socket.on('join', data => {
+		let drugs_game = app.locals.game_controller.getGame(data.room)
+		socket.join(data.room)
+		game.in(data.room).emit("get_players", { players: drugs_game.players })
+	})
+
+	socket.on('disconnect', data => {
+		console.log("SOCKET LEFT");
+		console.log(data);
 	})
 });
 

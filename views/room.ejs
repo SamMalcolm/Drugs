@@ -6,6 +6,7 @@
 </div>
 <script>
 	window.players = <%- JSON.stringify(players) %>;
+	window.current_player = <%- JSON.stringify(player) %>;
 	window.room_code = "<%= room_code %>";
 </script>
 <script src="/javascripts/lobby.bundle.js"></script>

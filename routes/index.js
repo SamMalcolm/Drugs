@@ -19,11 +19,11 @@ router.post('/room/create', (req, res, next) => {
 	let room_code = req.body.room_code;
 
 	let game = new Game(room_code);
-	let player_id = game.addPlayer(name, true);
+	let player = game.addPlayer(name, true);
 	req.app.locals.game_controller.addGame(game);
 
 	req.session.room_code = room_code;
-	req.session.player_id = player_id;
+	req.session.player = player;
 
 	res.redirect('/room/lobby');
 })
@@ -44,9 +44,10 @@ router.post('/room/join', (req, res, next) => {
 		req.session.messages = messages;
 		res.redirect('/join')
 	} else {
-		let id = game.addPlayer(name);
+		let player = game.addPlayer(name);
+		console.log(player);
 		req.session.room_code = room_code;
-		req.session.player_id = id;
+		req.session.player = player;
 		req.session.name = name;
 		console.log("EMITTING PLAYERS UPDATE")
 		req.app.locals.io_lobby.in(room_code).emit('players_update', game.players)
@@ -63,7 +64,13 @@ router.get('/room/lobby', (req, res, next) => {
 		res.redirect("/")
 	}
 
-	res.render("room", { title: title + " | " + game.room_code, players: game.players, room_code:game.room_code })
+	res.render("room",
+		{
+			title: title + " | " + game.room_code,
+			players: game.players,
+			room_code: game.room_code,
+			player: req.session.player
+		})
 
 })
 

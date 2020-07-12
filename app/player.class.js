@@ -14,7 +14,7 @@ class Player {
 		this.hand = [];
 		this.bottomCards = [];
 		this.topCards = [];
-		this.host = isHost
+		this.host = isHost;
 	}
 }
 

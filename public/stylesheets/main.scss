@@ -16,10 +16,12 @@ body {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-		a {
-			color:white;
-			text-decoration: none;
-		}
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
         h1 {
             height: 100%;
             margin: 0;
@@ -90,3 +92,5 @@ body {
         }
     }
 }
+
+@import 'home.scss'

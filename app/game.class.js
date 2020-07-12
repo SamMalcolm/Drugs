@@ -56,8 +56,9 @@ class Game {
 	}
 
 	addPlayer(name, isHost = false) {
-		this.players.push(new Player(name, this.players.length, isHost))
-		return this.players.length;
+		let player = new Player(name, this.players.length, isHost)
+		this.players.push(player)
+		return player;
 	}
 
 	removePlayer(name) {
