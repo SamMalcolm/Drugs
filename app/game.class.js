@@ -68,6 +68,10 @@ class Game {
 		return this.players;
 	}
 
+	setDeckCount(count) {
+		this.decks = count;
+	}
+
 	startGame() {
 
 		this.deck = new Deck(this.decks);
@@ -81,6 +85,7 @@ class Game {
 
 
 	constructor(room_code) {
+		this.setDeckCount(1);
 		this.pile = [];
 		this.deadCards = [];
 		this.players = [];

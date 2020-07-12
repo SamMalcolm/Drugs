@@ -1,159 +1,198 @@
 [
 	{
 		"suit": "hearts",
-		"value": 2
+		"value": 2,
+		"character": "🂲"
 	},
 	{
 		"suit": "hearts",
-		"value": 3
+		"value": 3,
+		"character": "🂳"
 	},
 	{
 		"suit": "hearts",
-		"value": 4
+		"value": 4,
+		"character": "🂴"
 	},
 	{
 		"suit": "hearts",
-		"value": 5
+		"value": 5,
+		"character": "🂵"
 	},
 	{
 		"suit": "hearts",
-		"value": 6
+		"value": 6,
+		"character": "🂶"
 	},
 	{
 		"suit": "hearts",
-		"value": 7
+		"value": 7,
+		"character": "🂷"
 	},
 	{
 		"suit": "hearts",
-		"value": 8
+		"value": 8,
+		"character": "🂸"
 	},
 	{
 		"suit": "hearts",
-		"value": 9
+		"value": 9,
+		"character": "🂹"
 	},
 	{
 		"suit": "hearts",
-		"value": 10
+		"value": 10,
+		"character": "🂺"
 	},
 	{
 		"suit": "hearts",
-		"value": "J"
+		"value": "J",
+		"character": "🂻"
 	},
 	{
 		"suit": "hearts",
-		"value": "Q"
+		"value": "Q",
+		"character": "🂽"
 	},
 	{
 		"suit": "hearts",
-		"value": "K"
+		"value": "K",
+		"character": "🂾"
 	},
 	{
 		"suit": "hearts",
-		"value": "A"
+		"value": "A",
+		"character": "🂱"
 	},
 	{
 		"suit": "diamonds",
-		"value": 2
+		"value": 2,
+		"character": "🃂"
 	},
 	{
 		"suit": "diamonds",
-		"value": 3
+		"value": 3,
+		"character": "🃃"
 	},
 	{
 		"suit": "diamonds",
-		"value": 4
+		"value": 4,
+		"character": "🃄"
 	},
 	{
 		"suit": "diamonds",
-		"value": 5
+		"value": 5,
+		"character": "🃅"
 	},
 	{
 		"suit": "diamonds",
-		"value": 6
+		"value": 6,
+		"character": "🃆"
 	},
 	{
 		"suit": "diamonds",
-		"value": 7
+		"value": 7,
+		"character": "🃇"
 	},
 	{
 		"suit": "diamonds",
-		"value": 8
+		"value": 8,
+		"character": "🃈"
 	},
 	{
 		"suit": "diamonds",
-		"value": 9
+		"value": 9,
+		"character": "🃉"
 	},
 	{
 		"suit": "diamonds",
-		"value": 10
+		"value": 10,
+		"character": "🃊"
 	},
 	{
 		"suit": "diamonds",
-		"value": "J"
+		"value": "J",
+		"character": "🃋"
 	},
 	{
 		"suit": "diamonds",
-		"value": "Q"
+		"value": "Q",
+		"character": "🃍"
 	},
 	{
 		"suit": "diamonds",
-		"value": "K"
+		"value": "K",
+		"character": "🃎"
 	},
 	{
 		"suit": "diamonds",
-		"value": "A"
+		"value": "A",
+		"character": "🃁"
 	},
 	{
 		"suit": "clubs",
-		"value": 2
+		"value": 2,
+		"character": "🃒"
 	},
 	{
 		"suit": "clubs",
-		"value": 3
+		"value": 3,
+		"character": "🃓"
 	},
 	{
 		"suit": "clubs",
-		"value": 4
+		"value": 4,
+		"character": "🃔"
 	},
 	{
 		"suit": "clubs",
-		"value": 5
+		"value": 5,
+		"character": "🃕"
 	},
 	{
 		"suit": "clubs",
-		"value": 6
+		"value": 6,
+		"character": "🃖"
 	},
 	{
 		"suit": "clubs",
-		"value": 7
+		"value": 7,
+		"character": "🃗"
 	},
 	{
 		"suit": "clubs",
-		"value": 8
+		"value": 8,
+		"character": "🃘"
 	},
 	{
 		"suit": "clubs",
-		"value": 9
+		"value": 9,
+		"character": "🃙"
 	},
 	{
 		"suit": "clubs",
-		"value": 10
+		"value": 10,
+		"character": "🃚"
 	},
 	{
 		"suit": "clubs",
-		"value": "J"
+		"value": "J",
+		"character": "🃛"
 	},
 	{
 		"suit": "clubs",
-		"value": "Q"
+		"value": "Q",
+		"character": "🃝"
 	},
 	{
 		"suit": "clubs",
-		"value": "K"
+		"value": "K",
+		"character": "🃞"
 	},
 	{
 		"suit": "clubs",
-		"value": "A"
+		"value": "A",
+		"character": "🃑"
 	},
 	{
 		"suit": "spades",
@@ -162,58 +201,72 @@
 	},
 	{
 		"suit": "spades",
-		"value": 3
+		"value": 3,
+		"character": "🂣"
 	},
 	{
 		"suit": "spades",
-		"value": 4
+		"value": 4,
+		"character": "🂤"
 	},
 	{
 		"suit": "spades",
-		"value": 5
+		"value": 5,
+		"character": "🂥"
 	},
 	{
 		"suit": "spades",
-		"value": 6
+		"value": 6,
+		"character": "🂦"
 	},
 	{
 		"suit": "spades",
-		"value": 7
+		"value": 7,
+		"character": "🂧"
 	},
 	{
 		"suit": "spades",
-		"value": 8
+		"value": 8,
+		"character": "🂨"
 	},
 	{
 		"suit": "spades",
-		"value": 9
+		"value": 9,
+		"character": "🂩"
 	},
 	{
 		"suit": "spades",
-		"value": 10
+		"value": 10,
+		"character": "🂪"
 	},
 	{
 		"suit": "spades",
-		"value": "J"
+		"value": "J",
+		"character": "🂫"
 	},
 	{
 		"suit": "spades",
-		"value": "Q"
+		"value": "Q",
+		"character": "🂭"
 	},
 	{
 		"suit": "spades",
-		"value": "K"
+		"value": "K",
+		"character": "🂮"
 	},
 	{
 		"suit": "spades",
-		"value": "A"
+		"value": "A",
+		"character": "🂡"
 	},
 	{
 		"suit": "red",
-		"value": "JO"
+		"value": "JO",
+		"character": "🃟"
 	},
 	{
 		"suit": "black",
-		"value": "JO"
+		"value": "JO",
+		"character": "🃟"
 	}
 ]

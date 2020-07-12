@@ -66,6 +66,8 @@ lobby.on("connection", socket => {
 	})
 
 	socket.on('start_game', data => {
+		let drugs_game = app.locals.game_controller.getGame(data.room)
+		drugs_game.startGame();
 		lobby.in(data.room).emit("start_game")
 	})
 

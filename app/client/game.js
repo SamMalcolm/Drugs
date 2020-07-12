@@ -18,7 +18,20 @@ socket.on('connect', () => {
 })
 
 const handlePlayers = players => {
-	console.log(players);
+	let current_player = players.filter((player) => { return player.position == player_id })[0]
+	console.log(current_player);
+	let hand = document.querySelector(".hand");
+	for (let i = 0; i < current_player.hand[0].length; i++) {
+		let html = ""
+		html = "<p style=\""
+		html += (current_player.hand[0][i].suit == "diamonds" || current_player.hand[0][i].suit == "hearts") ? 'color:red;' : 'color:black;';
+		html += "\">";
+		html += current_player.hand[0][i].character;
+		html += "</p>";
+		console.log(html);
+		hand.innerHTML += html
+
+	}
 }
 
 socket.on('get_players', data => {
