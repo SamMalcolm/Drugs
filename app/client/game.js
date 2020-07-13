@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-
+import '../../public/stylesheets/game.scss'
 var socket = io('/game');
 var deck = require('../standardDeck.json');
 var card_back = "🂠";
@@ -23,11 +23,12 @@ const handlePlayers = players => {
 	let hand = document.querySelector(".hand");
 	for (let i = 0; i < current_player.hand[0].length; i++) {
 		let html = ""
-		html = "<p style=\""
+		html += "<input type=\"checkbox\" value=\"" + i + "\" class=\"card\" id=\"card" + i + "\" />";
+		html += "<label for=\"card" + i + "\" style=\"";
 		html += (current_player.hand[0][i].suit == "diamonds" || current_player.hand[0][i].suit == "hearts") ? 'color:red;' : 'color:black;';
 		html += "\">";
 		html += current_player.hand[0][i].character;
-		html += "</p>";
+		html += "</label>"
 		console.log(html);
 		hand.innerHTML += html
 
